@@ -1,0 +1,17 @@
+# Django and related packages
+django
+djangorestframework
+django-cors-headers
+
+# Authentication and Authorization
+djangorestframework-simplejwt
+
+# Database
+psycopg2 # PostgreSQL database adapter
+
+# Deployment and server management
+gunicorn  # WSGI HTTP server for UNIX
+whitenoise  # Serve static files in production
+
+pillow  # For image processing 
+channels  # For WebSockets support (for real-time features like chat)
