@@ -1,5 +1,5 @@
 from rest_framework.generics import GenericAPIView
-from .serializers import RegistrationSerializer
+from .serializers import RegistrationSerializer, LoginSerializer
 from rest_framework.response import Response
 from .models import User
 
@@ -21,3 +21,14 @@ class RegisterUserView(GenericAPIView):
                 "access_token": user_tokens["access"],
                 "refresh_token": user_tokens["refresh"]
             })
+
+
+class LoginView(GenericAPIView):
+    permission_classes = []
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(
+            data=request.data, context={"request": request})
+        if serializer.is_valid(raise_exception=True):
+            return Response(serializer.data)
