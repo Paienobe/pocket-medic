@@ -4,7 +4,6 @@ import Button from "../components/UI/Button/Button";
 import UserTypeButton from "../components/Auth/UserTypeButton/UserTypeButton";
 import { useAuthContext } from "../context/auth/AuthContext";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import RedirectQuestion from "../components/Auth/RedirectQuestion/RedirectQuestion";
 
 const AuthIntroPage = () => {
@@ -13,7 +12,7 @@ const AuthIntroPage = () => {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center min-h-screen">
+      <section className="flex flex-col items-center justify-center w-fit mx-auto">
         <h1 className="text-4xl text-center">
           Join us as a Doctor or a Patient
         </h1>
@@ -30,7 +29,9 @@ const AuthIntroPage = () => {
         <Button
           text="Create Account"
           disabled={!userType}
-          clickFunction={() => router.push("/auth/register")}
+          clickFunction={() =>
+            router.push(`/auth/register?user_type=${userType}`)
+          }
         />
         <RedirectQuestion
           question="Already have an account?"
