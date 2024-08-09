@@ -7,6 +7,7 @@ import { RegisterData } from "./types";
 import { authEndpoints } from "@/app/services/api/auth";
 import { useSearchParams } from "next/navigation";
 import { initialState } from "./constants";
+import { preserveSession } from "@/app/lib/actions";
 
 const RegisterPage = () => {
   const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ const RegisterPage = () => {
 
   const handleSumit = async () => {
     authEndpoints.register(registerData).then((response) => {
-      console.log({ response });
+      preserveSession(response);
     });
   };
 
@@ -86,12 +87,7 @@ const RegisterPage = () => {
             />
           </div>
         </div>
-        <Button
-          text="Register"
-          type="submit"
-          className="w-full py-3 mt-6"
-          clickFunction={() => {}}
-        />
+        <Button text="Register" type="submit" className="w-full py-3 mt-6" />
       </form>
       <RedirectQuestion
         question="Already have an account?"

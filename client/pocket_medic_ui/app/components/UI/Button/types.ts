@@ -6,5 +6,5 @@ export type ButtonProps = {
   className?: string;
   disabled?: boolean;
   type?: "button" | "reset" | "submit";
-  clickFunction: () => void;
+  clickFunction?: () => void;
 };
