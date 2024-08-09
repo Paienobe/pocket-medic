@@ -13,7 +13,7 @@ class RegisterUserView(GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-            user = serializer.data.get("user")
+            user = serializer.data
             user_instance = User.objects.get(pk=user["id"])
             user_tokens = user_instance.tokens()
 
