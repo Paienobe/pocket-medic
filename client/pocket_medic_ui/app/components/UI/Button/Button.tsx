@@ -9,12 +9,14 @@ const Button = ({
   className,
   disabled = false,
   clickFunction,
+  type = "button",
 }: ButtonProps) => {
   return (
     <button
       className={`py-2 px-4 rounded-lg transition-colors duration-300 font-light disabled:cursor-not-allowed disabled:opacity-25 ${bg_color} ${hover_bg_color}  ${text_color} ${className}`}
       onClick={clickFunction}
       disabled={disabled}
+      type={type}
     >
       {text}
     </button>

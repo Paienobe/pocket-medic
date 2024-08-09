@@ -5,5 +5,6 @@ export type ButtonProps = {
   hover_bg_color?: string;
   className?: string;
   disabled?: boolean;
+  type?: "button" | "reset" | "submit";
   clickFunction: () => void;
 };

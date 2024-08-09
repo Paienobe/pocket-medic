@@ -3,5 +3,6 @@ export type InputProps = {
   placeholder: string;
   className?: string;
   type?: string;
-  changeFunc: () => void;
+  required?: boolean;
+  changeFunc: (value: any) => void;
 };

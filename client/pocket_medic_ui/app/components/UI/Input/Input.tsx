@@ -7,6 +7,7 @@ const Input = ({
   placeholder,
   className,
   type = "text",
+  required = true,
 }: InputProps) => {
   return (
     <div>
@@ -14,8 +15,9 @@ const Input = ({
         value={value}
         onChange={changeFunc}
         placeholder={placeholder}
-        className={`border border-primary-gray p-3 rounded-lg ${className}`}
+        className={`border border-primary-gray p-3 rounded-lg focus:outline-primary-blue ${className}`}
         type={type}
+        required={required}
       />
     </div>
   );
